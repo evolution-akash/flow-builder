@@ -1,25 +1,6 @@
-import type { Node, NodeTypes } from "reactflow";
+import type { NodeTypes } from "reactflow";
 import { PositionLoggerNode } from "./Nodes/PositionLoggerNode";
 import { Empty } from "./Nodes/EmptyNode";
-
-// export const initialNodes = [
-//   { id: "a", type: "position-logger", position: { x: 0, y: 0 }, data: { label: "wire" }, dragging: false },
-//   {
-//     id: "b",
-//     type: "position-logger",
-//     position: { x: 0, y: 0 },
-//     data: { label: "drag me!" },
-//     dragging: false
-//   },
-//   { id: "c", type: "position-logger", position: { x: 0, y: 0 }, data: { label: "your ideas" }, dragging: false },
-//   {
-//     id: "d",
-//     type: "position-logger",
-//     position: { x: 0, y: 0 },
-//     data: { label: "with React Flow" },
-//     dragging: false
-//   },
-// ] satisfies Node[];
 
 const position = { x: 0, y: 0 };
 export const initialNodes = [
@@ -89,7 +70,6 @@ export const initialNodes = [
     type: "empty",
     data: {},
     position,
-    height: 6,
     mergeNodeOfParentId: "3",
   },
   {

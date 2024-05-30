@@ -17,8 +17,6 @@ import { initialEdges, edgeTypes } from "./edge";
 import 'reactflow/dist/style.css';
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { blockTypes } from "./types";
 import { getLayoutedElements } from "./WorkflowUtils";
@@ -42,20 +40,8 @@ function Flow() {
   const layoutNodes = layoutElements.filter((x: any) => x.position);
   const layoutEdges = layoutElements.filter((x: any) => !x.position);
 
-  // blockTypes: any[] = blockTypes;
-
   const addNode = () => {
       const id = (new Date().getTime()).toString();
-      // nodes.push({
-      //     id: id,
-      //     type: "output",
-      //     position: { x: 0, y: 200 },
-      //     data: { label: "with React Flow" },
-      //   })
-      //   edges.push({ id: `d->${id}`, source: "d", target: `${id}`},)
-      //   console.log(nodes, edges);
-      //   setNodes(nodes);
-      //   setEdges(edges);
   }
 
   const onDragOver = useCallback((event: any) => {
@@ -65,26 +51,24 @@ function Flow() {
 
   return (
     <div style={{ height: '100%' }}>
-      <ReactFlowProvider>
-        <ReactFlow
-          nodes={layoutNodes}
-          nodeTypes={nodeTypes}
-          edges={layoutEdges}
-          edgeTypes={edgeTypes}
-          onDragOver={onDragOver}
-          // onNodesChange={onNodesChange}
-          // onEdgesChange={onEdgesChange}
-          // onConnect={onConnect}
-          panOnScroll
-          panOnDrag
-          fitView
-        >
-          <Background />
-          <MiniMap zoomable
-                  pannable/>
-          <Controls />
-        </ReactFlow>
-      </ReactFlowProvider>
+      <ReactFlow
+        nodes={layoutNodes}
+        nodeTypes={nodeTypes}
+        edges={layoutEdges}
+        edgeTypes={edgeTypes}
+        onDragOver={onDragOver}
+        // onNodesChange={onNodesChange}
+        // onEdgesChange={onEdgesChange}
+        // onConnect={onConnect}
+        panOnScroll
+        panOnDrag
+        fitView
+      >
+        <Background />
+        <MiniMap zoomable
+                pannable/>
+        <Controls />
+      </ReactFlow>
 
      <Sheet>
         <SheetTrigger className="absolute top-3 right-3" asChild>

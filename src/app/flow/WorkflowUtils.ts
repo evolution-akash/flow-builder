@@ -11,7 +11,7 @@ const getLayoutedElements = (_elements: any) => {
   const dagreGraph = new dagre.graphlib.Graph();
 
   dagreGraph.setDefaultEdgeLabel(() => ({}));
-  dagreGraph.setGraph({ rankdir: "TB" });
+  dagreGraph.setGraph({ rankdir: "TB", nodesep: 100, ranksep: 100 });
 
   elements.forEach((el: any) => {
     if (isNode(el)) {
