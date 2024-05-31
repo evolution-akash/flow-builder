@@ -6,6 +6,7 @@ export const Empty = (props: any) => (
       type="target"
       position={Position.Top}
       className="NodePort"
+      isConnectable={false}
       style={{ border: '0px solid #b1b1b7',
         borderRadius: 0,
         width: 1,
@@ -18,6 +19,7 @@ export const Empty = (props: any) => (
       type="source"
       position={Position.Bottom}
       className="NodePort"
+      isConnectable={false}
       style={{ border: '0px solid #b1b1b7',
         borderRadius: 0,
         width: 1,
