@@ -73,7 +73,7 @@ export const initialNodes: Node[] = [
     position,
     style: {
       width: 250,
-      height: 2
+      height: 1
     },
   },
   {
