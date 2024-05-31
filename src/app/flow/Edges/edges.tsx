@@ -1,4 +1,4 @@
-import { getBezierPath, getMarkerEnd, getSmoothStepPath } from "reactflow";
+import { getMarkerEnd, getSmoothStepPath } from "reactflow";
 import EdgeAddButton from "../EdgeAddButton/EdgeAddButton";
 
 import "./edges.css";
@@ -18,14 +18,6 @@ export const Condition = (props: any) => {
     markerEndId,
     data,
   } = props;
-//   const edgePath = getBezierPath({
-//     sourceX,
-//     sourceY,
-//     sourcePosition,
-//     targetX,
-//     targetY,
-//     targetPosition,
-//   });
   const markerEnd = getMarkerEnd(arrowHeadType, markerEndId);
 
 //   const [edgeCenterX, edgeCenterY] = getEdgeCenter({

@@ -6,6 +6,7 @@ export const Empty = (props: any) => (
       type="target"
       position={Position.Top}
       className="NodePort"
+      isConnectable={false}
       // style={{ opacity: 0 }}
     />
     <div className="EmptyNodeInnerWrapper"></div>
@@ -13,6 +14,7 @@ export const Empty = (props: any) => (
       type="source"
       position={Position.Bottom}
       className="NodePort"
+      isConnectable={false}
       style={{ opacity: 0 }}
     />
   </div>

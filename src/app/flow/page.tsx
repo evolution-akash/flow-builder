@@ -1,19 +1,16 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import ReactFlow, {
   Background,
   Controls,
   MiniMap,
-  addEdge,
   useNodesState,
   useEdgesState,
-  OnConnect,
-  ReactFlowProvider
 } from "reactflow";
 
-import { initialNodes, nodeTypes } from "./node";
-import { initialEdges, edgeTypes } from "./edge";
+import { initialNodes, nodeTypes } from "./Nodes/node";
+import { initialEdges, edgeTypes } from "./Edges/edge";
 import 'reactflow/dist/style.css';
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -22,23 +19,14 @@ import { blockTypes } from "./types";
 import { getLayoutedElements } from "./WorkflowUtils";
 
 function Flow() {
-  // const [nodes, setNodes , onNodesChange] = useNodesState(initialNodes);
-  // const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [layoutElements, setLayoutElements] = useState([]);
-  // const onConnect: OnConnect = useCallback(
-  //   (connection: any) => setEdges((edges: any) => addEdge(connection, edges)),
-  //   [setEdges]
-  // );
+  const [nodes, setNodes , onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  useEffect(() => {
-    setLayoutElements(getLayoutedElements([...initialNodes, ...initialEdges]));
-
-    // setNodes(layoutElements.filter((x: any) => x.position));
-    // setEdges(layoutElements.filter((x: any) => !x.position));
+  useEffect(() => { 
+    const layoutData = getLayoutedElements([...initialNodes, ...initialEdges]);
+    setNodes([...layoutData.filter((x: any) => x.position)]);
+    setEdges([...layoutData.filter((x: any) => !x.position)]);
   }, []);
-
-  const layoutNodes = layoutElements.filter((x: any) => x.position);
-  const layoutEdges = layoutElements.filter((x: any) => !x.position);
 
   const addNode = () => {
       const id = (new Date().getTime()).toString();
@@ -52,9 +40,9 @@ function Flow() {
   return (
     <div style={{ height: '100%' }}>
       <ReactFlow
-        nodes={layoutNodes}
+        nodes={nodes}
         nodeTypes={nodeTypes}
-        edges={layoutEdges}
+        edges={edges}
         edgeTypes={edgeTypes}
         onDragOver={onDragOver}
         // onNodesChange={onNodesChange}

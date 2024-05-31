@@ -1,18 +1,19 @@
-import type { NodeTypes } from "reactflow";
-import { PositionLoggerNode } from "./Nodes/PositionLoggerNode";
-import { Empty } from "./Nodes/EmptyNode";
+import type { Node, NodeTypes } from "reactflow";
+import { PositionLoggerNode } from "./PositionLoggerNode";
+import { Empty } from "./EmptyNode";
 
 const position = { x: 0, y: 0 };
-export const initialNodes = [
+
+export const initialNodes: Node[] = [
   {
     id: "1",
     type: "position-logger",
     data: {
       title: "Source",
       description: "Automations Database contacts",
-      stats: {
-        started: 0,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },
@@ -22,10 +23,9 @@ export const initialNodes = [
     data: {
       title: "Email",
       description: "Send message to contacts.",
-      stats: {
-        running: 18,
-        error: 1,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },
@@ -35,9 +35,9 @@ export const initialNodes = [
     data: {
       title: "Wait then Check",
       description: "Check behaviour of the contacts.",
-      stats: {
-        running: 17,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },
@@ -47,9 +47,9 @@ export const initialNodes = [
     data: {
       title: "Email",
       description: "Send message to contacts.",
-      stats: {
-        running: 3,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },
@@ -59,9 +59,9 @@ export const initialNodes = [
     data: {
       title: "SMS",
       description: "Send SMS to contacts.",
-      stats: {
-        running: 14,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },
@@ -70,7 +70,9 @@ export const initialNodes = [
     type: "empty",
     data: {},
     position,
-    mergeNodeOfParentId: "3",
+    style: {
+      width: 250,
+    },
   },
   {
     id: "7",
@@ -78,9 +80,9 @@ export const initialNodes = [
     data: {
       title: "End",
       description: "Automation ends.",
-      stats: {
-        completed: 14,
-      },
+    },
+    style: {
+      width: 250,
     },
     position,
   },

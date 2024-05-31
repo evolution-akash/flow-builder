@@ -1,13 +1,7 @@
 import type { Edge, EdgeTypes } from "reactflow";
-import { Condition } from "./Edges/edges";
+import { Condition } from "./edges";
 
-// export const initialEdges = [
-//   { id: "a->c", type: "condition", source: "a", target: "c"},
-//   { id: "b->d",type: "condition", source: "b", target: "d"},
-//   { id: "c->d",type: "condition", source: "c", target: "d"},
-// ] satisfies Edge[];
-
-export const initialEdges = [
+export const initialEdges: Edge[] = [
   {
     id: "e1-2",
     source: "1",
@@ -25,19 +19,12 @@ export const initialEdges = [
     source: "3",
     target: "4",
     type: "condition",
-    data: {
-      title: "Default condition",
-      disabled: true,
-    },
   },
   {
     id: "e3-5",
     source: "3",
     target: "5",
     type: "condition",
-    data: {
-      title: "Editable branch",
-    },
   },
   {
     id: "e4-6",
@@ -57,12 +44,7 @@ export const initialEdges = [
     target: "7",
     type: "condition",
   },
-] satisfies Edge[];
-
-// export const edgeTypes = {
-//   // Add your custom edge types here!
-//   custom: CustomEdge
-// } satisfies EdgeTypes;
+]
 
 export const edgeTypes = {
   condition: Condition,
