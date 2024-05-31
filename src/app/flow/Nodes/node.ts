@@ -1,6 +1,7 @@
 import type { Node, NodeTypes } from "reactflow";
 import { PositionLoggerNode } from "./PositionLoggerNode";
 import { Empty } from "./EmptyNode";
+import { initialEdges } from "../Edges/edge";
 
 const position = { x: 0, y: 0 };
 
@@ -10,7 +11,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Source",
-      description: "Automations Database contacts",
+      description: "Automations Database",
     },
     style: {
       width: 250,
@@ -22,7 +23,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Email",
-      description: "Send message to contacts.",
+      description: "Send message to",
     },
     style: {
       width: 250,
@@ -34,7 +35,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Wait then Check",
-      description: "Check behaviour of the contacts.",
+      description: "Check behaviour of the",
     },
     style: {
       width: 250,
@@ -46,7 +47,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Email",
-      description: "Send message to contacts.",
+      description: "Send message to",
     },
     style: {
       width: 250,
@@ -58,7 +59,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "SMS",
-      description: "Send SMS to contacts.",
+      description: "Send SMS to",
     },
     style: {
       width: 250,
@@ -87,6 +88,8 @@ export const initialNodes: Node[] = [
     position,
   },
 ];
+
+export const flowElements = [...initialNodes, ...initialEdges];
   
 export const nodeTypes = {
   "position-logger": PositionLoggerNode,

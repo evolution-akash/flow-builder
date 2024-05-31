@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { AddButton } from "../AddButton/AddButton";
 // import { Menu, Dropdown } from "antd";
 
 const EdgeAddButton = (props: any) => {
+  useEffect(() => {
+    console.log("EdgeAddButton", props);
+  })
   const { style, data, id } = props;
 //   const content = (
 //     <Menu onClick={(event) => data.onAddNodeCallback({ id, type: event.key })}>

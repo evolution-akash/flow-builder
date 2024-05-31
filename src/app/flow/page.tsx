@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactFlow, {
   Background,
   Controls,
@@ -9,7 +9,7 @@ import ReactFlow, {
   useEdgesState,
 } from "reactflow";
 
-import { initialNodes, nodeTypes } from "./Nodes/node";
+import { flowElements, initialNodes, nodeTypes } from "./Nodes/node";
 import { initialEdges, edgeTypes } from "./Edges/edge";
 import 'reactflow/dist/style.css';
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -17,19 +17,54 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { blockTypes } from "./types";
 import { getLayoutedElements } from "./WorkflowUtils";
+import { v4 as uuidv4 } from 'uuid';
 
 function Flow() {
   const [nodes, setNodes , onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [elements, setElements] = useState<any[]>([...flowElements]);
 
   useEffect(() => { 
-    const layoutData = getLayoutedElements([...initialNodes, ...initialEdges]);
+    const layoutData = getLayoutedElements([...elements]);
     setNodes([...layoutData.filter((x: any) => x.position)]);
-    setEdges([...layoutData.filter((x: any) => !x.position)]);
-  }, []);
+    setEdges([...layoutData.filter((x: any) => !x.position).map((x: any) => ({ ...x, data: { ...x.data, onAddNodeCallback } }))]);
+  }, [elements]);
+
+  const onAddNodeCallback = (id: string) => {
+    const edgeIndex = elements.findIndex((edge: any) => edge.id === id);
+    if(edgeIndex > -1) {
+      const newNodeId = uuidv4();
+      const newNode = {
+        id: newNodeId,
+        type: "position-logger",
+        data: {
+          title: "Source 1",
+          description: "Automations Database contacts",
+        },
+        style: {
+          width: 250,
+        },
+        position: {x:0, y: 0},
+      };
+      const target = elements[edgeIndex].target;
+      elements[edgeIndex].target = newNodeId;
+      elements.push(newNode);
+
+      const newEdge = {
+        id: uuidv4(),
+        source: newNodeId,
+        target: target,
+        type: "condition",
+        data: { onAddNodeCallback },
+      };
+
+      elements.push(newEdge);
+      setElements([...elements]);
+    }
+  };
 
   const addNode = () => {
-      const id = (new Date().getTime()).toString();
+    const id = (new Date().getTime()).toString();
   }
 
   const onDragOver = useCallback((event: any) => {
