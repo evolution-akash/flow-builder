@@ -84,3 +84,24 @@ body {
   width: 1px;
   height: 1px;
 }
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  animation: slidein 1000ms;
+}
+
+@keyframes slidein {
+  from {
+    height: 100%;
+  }
+
+  to {
+    height: 0;
+  }
+}

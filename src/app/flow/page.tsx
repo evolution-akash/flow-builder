@@ -73,6 +73,7 @@ function Flow() {
       elements.push(newEdge);
       setElements([...elements]);
     }
+    setSheetOpen(false);
   }
 
   const sheetChange = (event: any) => {

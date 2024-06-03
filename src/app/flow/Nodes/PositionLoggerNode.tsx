@@ -25,8 +25,9 @@ export function PositionLoggerNode({
     <>
       <Handle type="target" position={Position.Top} />
       <Card
-        className="relative max-w-[400px] dark:border-muted-foreground/70 nodrag"
+        className="relative max-w-[400px] dark:border-muted-foreground/70 shadow-md"
       >
+        <div className="overlay"></div>
         <CardHeader className="flex flex-row items-center gap-4 p-6">
           <div>
             {
@@ -44,7 +45,7 @@ export function PositionLoggerNode({
           <div>
             <CardTitle className="text-md">{data.title}</CardTitle>
             <CardDescription>
-              <p>{data.description}</p>
+              {data.description}
             </CardDescription>
           </div>
         </CardHeader>
