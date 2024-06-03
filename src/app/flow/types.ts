@@ -24,3 +24,7 @@ export const blockTypes = [
 `,
     }
 ]
+
+export const blockIcons: {[key: string]: string} =  {}
+
+blockTypes.forEach((block) => { blockIcons[block.type] = block.icon} )

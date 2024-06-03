@@ -29,14 +29,17 @@ export function PositionLoggerNode({
       >
         <CardHeader className="flex flex-row items-center gap-4 p-6">
           <div>
-            <Image
-              src="/discord.svg"
-              alt="Discord Logo"
-              className="dark:invert"
-              width={28}
-              height={2}
-              priority
-            />
+            {
+              data.icon ? <div dangerouslySetInnerHTML={{__html: data.icon}}></div> : 
+              <Image
+                src="/discord.svg"
+                alt="Discord Logo"
+                className="dark:invert"
+                width={28}
+                height={2}
+                priority
+              />
+            }
           </div>
           <div>
             <CardTitle className="text-md">{data.title}</CardTitle>
