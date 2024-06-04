@@ -53,9 +53,6 @@ function Flow() {
           description: "Automations Database contacts",
           icon: blockIcons[type]
         },
-        style: {
-          width: 250,
-        },
         position: {x:0, y: 0},
       };
       const target = elements[edgeIndex].target;

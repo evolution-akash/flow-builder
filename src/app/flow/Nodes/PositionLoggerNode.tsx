@@ -28,7 +28,7 @@ export function PositionLoggerNode({
         className="relative dark:border-muted-foreground/70 shadow-md"
       >
         <div className="overlay"></div>
-        <CardHeader className="flex flex-row items-center gap-4 p-6">
+        <CardHeader className="flex flex-row items-center gap-4 p-4">
           <div>
             {
               data.icon ? <div dangerouslySetInnerHTML={{__html: data.icon}}></div> : 
