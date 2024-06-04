@@ -90,10 +90,12 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #008CBA;
+  background-color: #1bacc6d6;
   overflow: hidden;
   width: 100%;
   animation: slidein 1000ms;
+  border-radius: 0 0 8px 8px;
+  height: 6px;
 }
 
 @keyframes slidein {
@@ -102,6 +104,6 @@ body {
   }
 
   to {
-    height: 0;
+    height: 6px;
   }
 }
