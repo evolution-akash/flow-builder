@@ -1,7 +1,7 @@
 import { Handle, Position } from "reactflow";
 
 export const Empty = (props: any) => (
-  <div className="NodeWrapper">
+  <div className="flex justify-center w-72">
     <Handle
       type="target"
       position={Position.Top}

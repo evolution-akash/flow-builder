@@ -22,10 +22,10 @@ export function PositionLoggerNode({
   const y = `${Math.round(yPos)}px`;
 
   return (
-    <>
-      <Handle type="target" position={Position.Top} />
+    <div className="flex justify-center w-72">
+      <Handle type="target" position={Position.Top} isConnectable={false} />
       <Card
-        className="relative max-w-[400px] dark:border-muted-foreground/70 shadow-md"
+        className="relative dark:border-muted-foreground/70 shadow-md"
       >
         <div className="overlay"></div>
         <CardHeader className="flex flex-row items-center gap-4 p-6">
@@ -59,7 +59,7 @@ export function PositionLoggerNode({
           className={clsx('absolute left-3 top-4 h-2 w-2 rounded-full bg-green-500', {})}
         ></div>
       </Card>
-       <Handle type="source" position={Position.Bottom} />
-    </>
+       <Handle type="source" position={Position.Bottom} isConnectable={false} />
+    </div>
   );
 }

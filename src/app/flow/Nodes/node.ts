@@ -11,10 +11,10 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Source",
-      description: "Automations Database",
-    },
-    style: {
-      width: 250,
+      description: "Automations Database contacts",
+      stats: {
+        started: 0,
+      },
     },
     position,
   },
@@ -23,10 +23,11 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Email",
-      description: "Send message to",
-    },
-    style: {
-      width: 250,
+      description: "Send message to contacts.",
+      stats: {
+        running: 18,
+        error: 1,
+      },
     },
     position,
   },
@@ -35,10 +36,10 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Wait then Check",
-      description: "Check behaviour of the",
-    },
-    style: {
-      width: 250,
+      description: "Check behaviour of the contacts.",
+      stats: {
+        running: 17,
+      },
     },
     position,
   },
@@ -47,10 +48,10 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Email",
-      description: "Send message to",
-    },
-    style: {
-      width: 250,
+      description: "Send message to contacts.",
+      stats: {
+        running: 3,
+      },
     },
     position,
   },
@@ -59,10 +60,10 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "SMS",
-      description: "Send SMS to",
-    },
-    style: {
-      width: 250,
+      description: "Send SMS to contacts.",
+      stats: {
+        running: 14,
+      },
     },
     position,
   },
@@ -71,10 +72,7 @@ export const initialNodes: Node[] = [
     type: "empty",
     data: {},
     position,
-    style: {
-      width: 250,
-      height: 1
-    },
+    height: 6,
   },
   {
     id: "7",
@@ -82,9 +80,9 @@ export const initialNodes: Node[] = [
     data: {
       title: "End",
       description: "Automation ends.",
-    },
-    style: {
-      width: 250,
+      stats: {
+        completed: 14,
+      },
     },
     position,
   },

@@ -8,7 +8,7 @@ const nodeHeight = 80;
 const getLayoutedElements = (_elements: any) => {
 //   const elements = _.cloneDeep(_elements);
   const elements = [..._elements];
-  const dagreGraph = new dagre.graphlib.Graph({directed: true, compound: true, multigraph: true});
+  const dagreGraph = new dagre.graphlib.Graph();
 
   dagreGraph.setDefaultEdgeLabel(() => ({}));
   dagreGraph.setGraph({ rankdir: "TB", ranksep: 100});
@@ -26,7 +26,7 @@ const getLayoutedElements = (_elements: any) => {
 
   dagre.layout(dagreGraph);
 
-  return elements.map((el: Node | Edge | Connection) => {
+  return elements.map((el: any) => {
     if (isNode(el)) {
       const nodeWithPosition = dagreGraph.node(el.id);
       el.targetPosition = Position.Top;
