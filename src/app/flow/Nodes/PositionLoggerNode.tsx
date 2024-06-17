@@ -22,7 +22,7 @@ export function PositionLoggerNode({
   const y = `${Math.round(yPos)}px`;
 
   return (
-    <div className="flex justify-center w-72">
+    <div className="flex justify-center w-72 h-20">
       <Handle type="target" position={Position.Top} isConnectable={false} style={{
         border: '0px solid #b1b1b7',
         borderRadius: 0,
@@ -61,9 +61,9 @@ export function PositionLoggerNode({
         >
           {'data.type'}
         </Badge>
-        <div
+        {/* <div
           className={clsx('absolute left-3 top-4 h-2 w-2 rounded-full bg-green-500', {})}
-        ></div>
+        ></div> */}
       </Card>
       <Handle type="source" position={Position.Bottom} isConnectable={false} style={{
         border: '0px solid #b1b1b7',

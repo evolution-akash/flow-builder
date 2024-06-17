@@ -7,10 +7,11 @@ export const Empty = (props: any) => (
       position={Position.Top}
       className="NodePort"
       isConnectable={false}
-      style={{ border: '0px solid #b1b1b7',
+      style={{
+        border: '0px solid #b1b1b7',
         borderRadius: 0,
-        width: 1,
-        minWidth: 1,
+        width: 2,
+        minWidth: 2,
         background: '#b1b1b7',
       }}
     />
@@ -20,10 +21,11 @@ export const Empty = (props: any) => (
       position={Position.Bottom}
       className="NodePort"
       isConnectable={false}
-      style={{ border: '0px solid #b1b1b7',
+      style={{
+        border: '0px solid #b1b1b7',
         borderRadius: 0,
-        width: 1,
-        minWidth: 1,
+        width: 2,
+        minWidth: 2,
         background: '#b1b1b7',
       }}
     />

@@ -2,10 +2,11 @@ import { getMarkerEnd, getSmoothStepPath } from "reactflow";
 import EdgeAddButton from "../EdgeAddButton/EdgeAddButton";
 
 import "./edges.css";
+import { initialNodes } from "../Nodes/node";
 
 const [buttonWidth, buttonHeight] = [30, 30];
 
-export const Condition = (props: any) => {
+export const EdgePath = (props: any) => {
   const {
     id,
     sourceX,
@@ -19,6 +20,7 @@ export const Condition = (props: any) => {
     data,
   } = props;
   const markerEnd = getMarkerEnd(arrowHeadType, markerEndId);
+  const targetNodeType = initialNodes.find(node => node.id === props.target)?.type;
 
   //   const [edgeCenterX, edgeCenterY] = getEdgeCenter({
   //     sourceX,
@@ -36,10 +38,10 @@ export const Condition = (props: any) => {
     targetPosition,
   });
 
-  console.log(targetX, sourceX)
+  console.log(targetX, sourceX), targetNodeType
   const customEdgePath = `
-  M ${sourceX} ${sourceY}
-  L ${sourceX} ${sourceY + 35}
+  M ${sourceX} ${sourceY - 60}
+  L ${sourceX} ${sourceY + 60}
   H ${targetX}  
   L ${targetX} ${targetY}
 `;
@@ -55,19 +57,21 @@ export const Condition = (props: any) => {
       />
       {isAddButtonHidden ? null : (
         <>
-          <foreignObject
-            width={buttonWidth}
-            height={buttonHeight}
-            x={targetX - buttonWidth / 2}
-            y={Math.floor(targetX) === Math.floor(sourceX) ? (targetY - (targetY - sourceY) / 2) : targetY - ((targetY - sourceY) / 2)}
-            requiredExtensions="http://www.w3.org/1999/xhtml"
-          >
-            <EdgeAddButton
-              {...props}
-              onClick={() => { }}
-              style={{ width: buttonWidth, height: buttonHeight }}
-            />
-          </foreignObject>
+          {targetNodeType !== 'condition' ?
+            <foreignObject
+              width={buttonWidth}
+              height={buttonHeight}
+              x={sourceX - buttonWidth / 2}
+              y={targetNodeType !== 'empty' ? targetY - (targetY - sourceY + buttonHeight) / 2 : sourceY}
+              requiredExtensions="http://www.w3.org/1999/xhtml"
+            >
+              <EdgeAddButton
+                {...props}
+                onClick={() => { }}
+                style={{ width: buttonWidth, height: buttonHeight }}
+              />
+            </foreignObject>
+            : ''}
         </>
       )}
     </>

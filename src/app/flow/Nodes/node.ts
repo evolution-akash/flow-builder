@@ -2,6 +2,7 @@ import type { Node, NodeTypes } from "reactflow";
 import { PositionLoggerNode } from "./PositionLoggerNode";
 import { Empty } from "./EmptyNode";
 import { initialEdges } from "../Edges/edge";
+import Condition from "./Condition";
 
 const position = { x: 0, y: 0 };
 
@@ -11,7 +12,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Source",
-      description: "Automations Database contacts",
+      description: "Automations Database",
       stats: {
         started: 0,
       },
@@ -36,7 +37,7 @@ export const initialNodes: Node[] = [
     type: "position-logger",
     data: {
       title: "Wait then Check",
-      description: "Check behaviour of the contacts.",
+      description: "Check behaviour of the.",
       stats: {
         running: 17,
       },
@@ -45,7 +46,7 @@ export const initialNodes: Node[] = [
   },
   {
     id: "4",
-    type: "position-logger",
+    type: "condition",
     data: {
       title: "Email",
       description: "Send message to contacts.",
@@ -57,7 +58,7 @@ export const initialNodes: Node[] = [
   },
   {
     id: "5",
-    type: "position-logger",
+    type: "condition",
     data: {
       title: "SMS",
       description: "Send SMS to contacts.",
@@ -69,7 +70,7 @@ export const initialNodes: Node[] = [
   },
   {
     id: "9",
-    type: "position-logger",
+    type: "condition",
     data: {
       title: "SMS",
       description: "Send SMS to contacts.",
@@ -104,6 +105,7 @@ export const flowElements = [...initialNodes, ...initialEdges];
 
 export const nodeTypes = {
   "position-logger": PositionLoggerNode,
-  "empty": Empty
+  "empty": Empty,
+  "condition": Condition
   // Add any of your custom nodes here!
 } satisfies NodeTypes;

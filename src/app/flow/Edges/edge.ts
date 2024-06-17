@@ -1,5 +1,5 @@
 import type { Edge, EdgeTypes } from "reactflow";
-import { Condition } from "./edges";
+import { EdgePath } from "./edges";
 
 export const initialEdges: Edge[] = [
   {
@@ -59,5 +59,5 @@ export const initialEdges: Edge[] = [
 ]
 
 export const edgeTypes = {
-  condition: Condition,
+  condition: EdgePath,
 } satisfies EdgeTypes;
