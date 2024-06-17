@@ -68,6 +68,18 @@ export const initialNodes: Node[] = [
     position,
   },
   {
+    id: "9",
+    type: "position-logger",
+    data: {
+      title: "SMS",
+      description: "Send SMS to contacts.",
+      stats: {
+        running: 14,
+      },
+    },
+    position,
+  },
+  {
     id: "6",
     type: "empty",
     data: {},
@@ -89,7 +101,7 @@ export const initialNodes: Node[] = [
 ];
 
 export const flowElements = [...initialNodes, ...initialEdges];
-  
+
 export const nodeTypes = {
   "position-logger": PositionLoggerNode,
   "empty": Empty

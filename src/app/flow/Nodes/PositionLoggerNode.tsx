@@ -1,6 +1,6 @@
 "use client"
 
-import type {NodeProps} from "reactflow";
+import type { NodeProps } from "reactflow";
 
 import React from "react";
 import { Handle, Position } from "reactflow";
@@ -23,7 +23,13 @@ export function PositionLoggerNode({
 
   return (
     <div className="flex justify-center w-72">
-      <Handle type="target" position={Position.Top} isConnectable={false} />
+      <Handle type="target" position={Position.Top} isConnectable={false} style={{
+        border: '0px solid #b1b1b7',
+        borderRadius: 0,
+        width: 2,
+        minWidth: 2,
+        background: '#b1b1b7',
+      }} />
       <Card
         className="relative dark:border-muted-foreground/70 shadow-md"
       >
@@ -31,15 +37,15 @@ export function PositionLoggerNode({
         <CardHeader className="flex flex-row items-center gap-4 p-4">
           <div>
             {
-              data.icon ? <div dangerouslySetInnerHTML={{__html: data.icon}}></div> : 
-              <Image
-                src="/discord.svg"
-                alt="Discord Logo"
-                className="dark:invert"
-                width={28}
-                height={2}
-                priority
-              />
+              data.icon ? <div dangerouslySetInnerHTML={{ __html: data.icon }}></div> :
+                <Image
+                  src="/discord.svg"
+                  alt="Discord Logo"
+                  className="dark:invert"
+                  width={28}
+                  height={2}
+                  priority
+                />
             }
           </div>
           <div>
@@ -59,7 +65,13 @@ export function PositionLoggerNode({
           className={clsx('absolute left-3 top-4 h-2 w-2 rounded-full bg-green-500', {})}
         ></div>
       </Card>
-       <Handle type="source" position={Position.Bottom} isConnectable={false} />
+      <Handle type="source" position={Position.Bottom} isConnectable={false} style={{
+        border: '0px solid #b1b1b7',
+        borderRadius: 0,
+        width: 2,
+        minWidth: 2,
+        background: '#b1b1b7',
+      }} />
     </div>
   );
 }

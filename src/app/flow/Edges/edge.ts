@@ -27,6 +27,12 @@ export const initialEdges: Edge[] = [
     type: "condition",
   },
   {
+    id: "e3-9",
+    source: "3",
+    target: "9",
+    type: "condition",
+  },
+  {
     id: "e4-6",
     source: "4",
     target: "6",
@@ -35,6 +41,12 @@ export const initialEdges: Edge[] = [
   {
     id: "e5-6",
     source: "5",
+    target: "6",
+    type: "condition",
+  },
+  {
+    id: "e9-6",
+    source: "9",
     target: "6",
     type: "condition",
   },

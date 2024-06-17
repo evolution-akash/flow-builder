@@ -6,12 +6,12 @@ const nodeWidth = 250;
 const nodeHeight = 80;
 
 const getLayoutedElements = (_elements: any) => {
-//   const elements = _.cloneDeep(_elements);
+  //   const elements = _.cloneDeep(_elements);
   const elements = [..._elements];
   const dagreGraph = new dagre.graphlib.Graph();
 
   dagreGraph.setDefaultEdgeLabel(() => ({}));
-  dagreGraph.setGraph({ rankdir: "TB", ranksep: 100});
+  dagreGraph.setGraph({ rankdir: "TB", ranksep: 130 });
 
   elements.forEach((el: any) => {
     if (isNode(el)) {
