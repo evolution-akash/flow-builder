@@ -62,7 +62,7 @@ export const EdgePath = (props: any) => {
               width={buttonWidth}
               height={buttonHeight}
               x={sourceX - buttonWidth / 2}
-              y={targetNodeType !== 'empty' ? targetY - (targetY - sourceY + buttonHeight) / 2 : sourceY}
+              y={targetNodeType !== 'empty' ? targetY - (targetY - sourceY + buttonHeight) / 2 : sourceY + 10}
               requiredExtensions="http://www.w3.org/1999/xhtml"
             >
               <EdgeAddButton
